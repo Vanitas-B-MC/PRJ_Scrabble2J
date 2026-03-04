@@ -2,7 +2,7 @@
 Projet SCRABBLE - Mode 2 joueur
 
 ## Description
-* **Jeu simplifié du SCRABBLE : l'application affiche le score du mot saisi par l'utilisateur 1 ou 2** / [Valeur des lettres au Scrabble](https://fr.wikipedia.org/wiki/Lettres_du_Scrabble#:~:text=1%20point%3A%20E%20%C3%979,%C3%972%2C%20%C3%85%20%C3%972)
+* **Jeu simplifié du SCRABBLE : l'application affiche le score des mots saisies par les utilisateur 1 et 2** / [Valeur des lettres au Scrabble](https://fr.wikipedia.org/wiki/Lettres_du_Scrabble#:~:text=1%20point%3A%20E%20%C3%979,%C3%972%2C%20%C3%85%20%C3%972)
 * Application de bureau **WPF / C#**
 * Traitement des **demandes de corrections et d'évolutions**
 
