@@ -59,12 +59,7 @@ namespace Scrabble2Joueurs
         /// <returns>nombre de mots du joueur</returns>
         public int GetNbMots()
         {
-            int nbMots = 0;
-            foreach (string unMot in lesMots)
-            {
-                nbMots++;
-            }
-            return nbMots;
+            return this.lesMots.Count;
         }
         /// <summary>
         /// retourne la liste des mots du joueur
