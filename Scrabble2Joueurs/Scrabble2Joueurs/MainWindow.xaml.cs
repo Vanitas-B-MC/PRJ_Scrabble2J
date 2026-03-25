@@ -26,29 +26,47 @@ namespace Scrabble2Joueurs
             InitializeComponent();
         }
 
+        Joueur J1;
+        Joueur J2;
 
         private void startGame(object sender, RoutedEventArgs e)
         {
+
             string nom1 = txtNomJ1.Text;
             string nom2 = txtNomJ2.Text;
-            nomJoueur1.Text = nom1;
-            nomJoueur2.Text = nom2;
-            if (nom1 == nom2)
-                MessageBox.Show("Veuillez saisir un nom different pour chaque joueur", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            
+            if (nom1 == "" || nom2 == "") { MessageBox.Show("Veuillez saisir un nom pour chaque joueur", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
 
-            if (Regex.IsMatch(nom1, @"^[A-Za-z]+$") == true && Regex.IsMatch(nom2, @"^[A-Za-z]+$") == true)
+            else if (Regex.IsMatch(nom1, @"^[A-Za-z]+$") == true && Regex.IsMatch(nom2, @"^[A-Za-z]+$") == true && nom1 != nom2)
             {
-                btnCommencer.Visibility = Visibility.Collapsed;
-                txtNomJ1.Visibility = Visibility.Collapsed;
-                txtNomJ2.Visibility = Visibility.Collapsed;
-                aDeleteJ1.Visibility = Visibility.Collapsed;
-                aDeleteJ2.Visibility = Visibility.Collapsed;
+                DebutPartie.Visibility = Visibility.Collapsed;
                 nomJoueur1.Visibility = Visibility.Visible;
                 nomJoueur2.Visibility = Visibility.Visible;
+                J1 = new Joueur(nom1);
+                J2 = new Joueur(nom2);
+                nomJoueur1.Text = J1.GetNom();
+                nomJoueur2.Text = J2.GetNom();
+                AfficheurNomJ2.Content = J2.GetNom();
+                AfficheurNomJ1.Content = J1.GetNom();
             }
-            else MessageBox.Show("Veuillez saisir un nom pour chaque joueur","Erreur",MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+            {
+                MessageBox.Show("Veuillez saisir un nom different pour chaque joueur", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            }
+
+
+
+        private void Button_Click_J1(object sender, RoutedEventArgs e)
+        {
+            nbrMotJ1.Content = J1.GetNbMots() + " / 10";
         }
 
-
+        private void Button_Click_J2(object sender, RoutedEventArgs e)
+        {
+            nbrMotJ2.Content = J2.GetNbMots() + " / 10";
+        }
     }
 }

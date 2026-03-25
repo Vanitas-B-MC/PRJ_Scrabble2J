@@ -89,6 +89,11 @@ namespace Scrabble2Joueurs
             }
             return tmp;
         }
+
+        public string GetNom()
+        {
+            return this.nom; 
+        }
         #endregion
     }
 }

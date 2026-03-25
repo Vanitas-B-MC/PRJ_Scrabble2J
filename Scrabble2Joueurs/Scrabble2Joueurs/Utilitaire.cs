@@ -61,5 +61,7 @@ namespace Scrabble2Joueurs
             }
             return pts;
         }
+
+
     }
 }
