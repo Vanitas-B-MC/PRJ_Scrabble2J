@@ -54,3 +54,8 @@ Console.WriteLine("Hello World !") ;
 ![Ranni](https://c.tenor.com/W9BNY0o3vVoAAAAC/tenor.gif)
 # 98.7 Body Heat Radio
 ![I really want to stay at your house.](https://c.tenor.com/7LfXC60OyVkAAAAd/tenor.gif)
+<br><br>
+# Secure. Contain. Protect
+![SCP](https://media.tenor.com/kASwz3BgwrkAAAAi/scp.gif)
+# Krieg
+![Krieg](/assets/KomisarInspection.gif)
