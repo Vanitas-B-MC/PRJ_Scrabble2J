@@ -1,6 +1,6 @@
 ![Header](https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:3b82f6&height=200&section=header&text=Scrabble%202J&fontSize=40)
 [![Download](https://img.shields.io/badge/Download-Release-0A66C2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vanitas-B-MC/PRJ_Scrabble2J/releases)
-[![Docs](https://img.shields.io/badge/Docs-Read%20Now-8A2BE2?style=for-the-badge&logo=readthedocs&logoColor=white)](https://your-docs.com)
+[![Docs](https://img.shields.io/badge/Docs-Read%20Now-8A2BE2?style=for-the-badge&logo=readthedocs&logoColor=white)](https://docs.google.com/document/d/16C_u5ggDNLeohmDBj1uULyayKDGFcQjceb_QkEtUMj8/edit?usp=sharing)
 
 # PRJ_Scrabble2J
 Projet SCRABBLE - Mode 2 joueur
@@ -14,9 +14,12 @@ Projet SCRABBLE - Mode 2 joueur
 ```
 Scrabble2Joueurs/
 |--FondScrabble.png
+|--Joueurs.cs
 |--MainWindow.xaml
 |  |--MainWindow.xml.cs  
 |-- Utilitaire.cs
+Scrabble2JoueursTests/
+|--JoueursTests.cs
 ```
 
 # Objectifs pédagogiques
@@ -26,21 +29,28 @@ Scrabble2Joueurs/
 3. Ajout fichier _.gitignore_
 4. Gestion des _issues_
 
-
-<br><br><br><br><br><br><br><br><br>
-
-
-# LOBOTOMY KAISEN !!!
-
-*But would you lose ?*
-
-
-![Nah, I'd win](https://img1.picmix.com/output/stamp/thumb/0/3/9/4/2564930_9cb4b.png)
-
-
-Throught Heaven and Eath, I alone am the **crazy one**
-
-
-`Console.WriteLine("Hello World !") ;`
-
 [liens vers le SCRABBLE](https://github.com/Vanitas-B-MC/Scrabble1J/edit/main/README.md)
+<br><br><br><br><br><br><br><br><br><br>
+
+
+# My love
+
+![Poogie The King](https://static.wikia.nocookie.net/mogapedia/images/d/dd/MHW-Poogie_Render.png/revision/latest?cb=20230805180215&path-prefix=fr)
+
+
+```C#
+Console.WriteLine("Hello World !") ;
+```
+## "Just parry"
+![Parry](https://c.tenor.com/avTtsFdG0QMAAAAd/tenor.gif)
+<br>
+![Goober](https://media1.tenor.com/m/kmpXuxOAwNwAAAAC/grace-roblox.gif)![Goober](https://media1.tenor.com/m/kmpXuxOAwNwAAAAC/grace-roblox.gif)
+<br>
+# **MY DRILL IS THE DRILL THAT CREATES THE HEAVENS !**
+![My drill is the drill that creates the heavens](https://c.tenor.com/qFUjOD9vHLEAAAAd/tenor.gif)
+# CURSE YOU BAYLE !
+![CURSE YOU BAYLE !!!](https://c.tenor.com/cHIstfF0PUgAAAAd/tenor.gif)
+### Ranni
+![Ranni](https://c.tenor.com/W9BNY0o3vVoAAAAC/tenor.gif)
+# 98.7 Body Heat Radio
+![I really want to stay at your house.](https://c.tenor.com/7LfXC60OyVkAAAAd/tenor.gif)
