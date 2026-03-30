@@ -1,3 +1,7 @@
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:3b82f6&height=200&section=header&text=Scrabble%202J&fontSize=40)
+[![Download](https://img.shields.io/badge/Download-Release-0A66C2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vanitas-B-MC/PRJ_Scrabble2J/releases)
+[![Docs](https://img.shields.io/badge/Docs-Read%20Now-8A2BE2?style=for-the-badge&logo=readthedocs&logoColor=white)](https://your-docs.com)
+
 # PRJ_Scrabble2J
 Projet SCRABBLE - Mode 2 joueur
 
