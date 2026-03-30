@@ -51,16 +51,39 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="Deb" Grid.Row="0" Margin="0,0,0,256" Grid.RowSpan="2" >
-            <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" x:Name="nomJoueur1" VerticalAlignment="Center" Visibility="Hidden"/>
-            <TextBlock HorizontalAlignment="Left" Margin="415,38,0,0" TextWrapping="Wrap" x:Name="nomJoueur2" VerticalAlignment="Top" Visibility="Hidden"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Name="Lettres" Visibility="Collapsed">
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter1" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter2" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter3" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter4" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter5" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter6" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+                <Viewbox Width="60" Height="60">
+                    <TextBlock x:Name="Letter7" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center"/>
+                </Viewbox>
+            </StackPanel>
             <Grid x:Name="DebutPartie">
                 <Label x:Name="aDeleteJ1" Content="Entrez le nom du Joueur 1" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" />
                 <TextBox x:Name="txtNomJ1" HorizontalAlignment="Left" Margin="300,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" />
                 <Label x:Name="aDeleteJ2" Content="Entrez le nom du Joueur 2" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" />
                 <TextBox x:Name="txtNomJ2" HorizontalAlignment="Left" Margin="300,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" />
                 <Button x:Name="btnCommencer" Content="COMMENCER" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,20,0,0" Click="startGame" Background="#FF1E82FF" Height="52" Width="161" />
+                <TextBox HorizontalAlignment="Left" Margin="563,20,0,0" x:Name="txtMot" VerticalAlignment="Top" Width="227" Height="52" Visibility="Collapsed"/>
             </Grid>
         </Grid>
+
         <Grid x:Name="Partie" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -73,8 +96,10 @@
                     <Label x:Name="AfficheurNomJ1" Content="Il était une fois la vie" HorizontalAlignment="Center" Margin="0,8,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="nbrMotJ1" Content="Mots/10" HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top"/>
                     <TextBlock Text="" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ1" VerticalAlignment="Top" Height="110" Width="100" Margin="0,38,0,0"/>
+
+
                 </Grid>
-                
+
             </Border>
 
             <!-- Joueur 2 -->
@@ -84,6 +109,7 @@
                     <Label x:Name="AfficheurNomJ2" Content="Tu n'est pas senser voir ça" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="nbrMotJ2" Content="Mots/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top"/>
                     <TextBlock Text="" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ2" VerticalAlignment="Top" Height="110" Width="100" Margin="0,40,0,0"/>
+                    
                 </Grid>
             </Border>
         </Grid>

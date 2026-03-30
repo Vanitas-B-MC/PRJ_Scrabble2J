@@ -62,6 +62,32 @@ namespace Scrabble2Joueurs
             return pts;
         }
 
+        #region Méthodes pour le scrabble
+        public static string[] lettresScrabblesRandom()
+        {
+            // listes littres du scrabble
+            string lettres = "AAAAAAAAABBCCDDDDEEEEEEEEEEEEFFGGGHHIIIIIIIIIJKLLLMMNNNNNNOOOOOOOOPPQRRRRRRSSTTTTTTUUUUVVWWXYYZ";
+            Random rand = new Random();
+            string[] hand = new string[7];
 
+            for (int i = 0; i < hand.Length; i++)
+            {
+                int index = rand.Next(lettres.Length);
+                hand[i] = lettres[index].ToString(); // covertie de char en string
+            }
+
+            return hand;
+        }
+
+
+        public static Joueur ChooseStarter(Joueur j1, Joueur j2)
+        {
+            Random rand = new Random();
+            // Retourne un joueur au hasard
+            return rand.Next(2) == 0 ? j1 : j2;
+        }
+
+
+        #endregion
     }
 }

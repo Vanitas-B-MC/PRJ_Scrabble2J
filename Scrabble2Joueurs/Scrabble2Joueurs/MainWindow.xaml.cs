@@ -40,14 +40,28 @@ namespace Scrabble2Joueurs
             else if (Regex.IsMatch(nom1, @"^[A-Za-z]+$") == true && Regex.IsMatch(nom2, @"^[A-Za-z]+$") == true && nom1 != nom2)
             {
                 DebutPartie.Visibility = Visibility.Collapsed;
-                nomJoueur1.Visibility = Visibility.Visible;
-                nomJoueur2.Visibility = Visibility.Visible;
+                Lettres.Visibility = Visibility.Visible;
                 J1 = new Joueur(nom1);
                 J2 = new Joueur(nom2);
-                nomJoueur1.Text = J1.GetNom();
-                nomJoueur2.Text = J2.GetNom();
                 AfficheurNomJ2.Content = J2.GetNom();
                 AfficheurNomJ1.Content = J1.GetNom();
+                string[] hand = Utilitaire.lettresScrabblesRandom();
+                Letter1.Text = hand[0].ToString();
+                Letter2.Text = hand[1].ToString();
+                Letter3.Text = hand[2].ToString();
+                Letter4.Text = hand[3].ToString();
+                Letter5.Text = hand[4].ToString();
+                Letter6.Text = hand[5].ToString();
+                Letter7.Text = hand[6].ToString();
+                txtMot.Visibility = Visibility.Visible;
+                Joueur starter = Utilitaire.ChooseStarter(J1, J2);
+                if (starter == J1)
+                { 
+                Visibility = Visibility.Visible;
+                }
+                else
+                {
+                }
             }
             else
             {
@@ -56,7 +70,7 @@ namespace Scrabble2Joueurs
             }
 
             }
-
+        
 
 
         private void Button_Click_J1(object sender, RoutedEventArgs e)
@@ -67,6 +81,11 @@ namespace Scrabble2Joueurs
         private void Button_Click_J2(object sender, RoutedEventArgs e)
         {
             nbrMotJ2.Content = J2.GetNbMots() + " / 10";
+            txtMot.Clear();
+            txtTotalPointsJ2.Text = J2.GetTotalPoints().ToString();
+            txtMot.Focus();
         }
+
+
     }
 }

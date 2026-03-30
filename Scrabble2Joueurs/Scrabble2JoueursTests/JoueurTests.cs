@@ -14,7 +14,8 @@ namespace Scrabble2Joueurs.Tests
         [TestMethod()]
         public void JoueurTest()
         {
-            Assert.Fail();
+            Joueur J1 = new Joueur("DaNoob");
+            Assert.AreEqual("DaNoob", J1.GetNom(), "Le nom du joueur doit être DaNoob");
         }
 
         [TestMethod()]
@@ -47,19 +48,32 @@ namespace Scrabble2Joueurs.Tests
         [TestMethod()]
         public void GetTotalPointsTest()
         {
-            Assert.Fail();
+            Joueur J1 = new Joueur("DaNoob");
+            J1.AjouterMot("Anticonstitutionnellement");
+            double expected = J1.GetTotalPoints();
+            Assert.AreEqual(28, expected, "Beaucoup de points");
         }
 
         [TestMethod()]
         public void GetNbMotsTest()
         {
-            Assert.Fail();
+            Joueur J1 = new Joueur("DaNoob");
+            J1.AjouterMot("Anticonstitutionnellement");
+            J1.AjouterMot("Xylophone");
+            J1.AjouterMot("Schizothymiques");
+            Assert.AreEqual(3, J1.GetNbMots());
         }
 
         [TestMethod()]
         public void GetLesMotsTest()
         {
-            Assert.Fail();
+            Joueur J1 = new Joueur("DaNoob");
+            J1.AjouterMot("Anticonstitutionnellement");
+            J1.AjouterMot("Xylophone");
+            J1.AjouterMot("Schizothymiques");
+            Assert.AreEqual("Anticonstitutionnellement", J1.GetLesMots()[0]);
+            Assert.AreEqual("Xylophone", J1.GetLesMots()[1]);
+            Assert.AreEqual("Schizothymiques", J1.GetLesMots()[2]);
         }
 
         [TestMethod()]
