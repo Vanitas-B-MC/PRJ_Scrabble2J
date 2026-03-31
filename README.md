@@ -5,6 +5,8 @@
 # PRJ_Scrabble2J
 Projet SCRABBLE - Mode 2 joueur
 
+# **+400 000 mots possibles !!!**
+
 ## Description
 * **Jeu simplifié du SCRABBLE : l'application affiche le score des mots saisies par les utilisateur 1 et 2** / [Valeur des lettres au Scrabble](https://fr.wikipedia.org/wiki/Lettres_du_Scrabble#:~:text=1%20point%3A%20E%20%C3%979,%C3%972%2C%20%C3%85%20%C3%972)
 * Application de bureau **WPF / C#**
