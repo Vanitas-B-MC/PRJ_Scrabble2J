@@ -80,6 +80,25 @@ namespace Scrabble2Joueurs
         }
 
 
+        public static bool utilisationDesLettres(string mot, string[] hand)
+        {
+            // On crée une copie de la main pour ne pas modifier l'original
+            var lettresDisponibles = new List<string>(hand);
+
+            foreach (char c in mot.ToUpper())
+            {
+                string lettre = c.ToString();
+                if (!lettresDisponibles.Remove(lettre))
+                {
+                    // La lettre n'est pas dans la main ou déjà utilisée
+                    return false;
+                }
+            }
+
+            return true; // Toutes les lettres du mot étaient disponibles
+        }
+
+
         public static Joueur ChooseStarter(Joueur j1, Joueur j2)
         {
             Random rand = new Random();
