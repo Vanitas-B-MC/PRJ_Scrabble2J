@@ -77,6 +77,9 @@ namespace Scrabble2Joueurs
             {
                 DebutPartie.Visibility = Visibility.Collapsed;
                 Lettres.Visibility = Visibility.Visible;
+                AfficheurNomJ2.Visibility = Visibility.Visible;
+                Joueur2play.Visibility = Visibility.Visible;
+
                 J1 = new Joueur(nom1);
                 J2 = new Joueur(nom2);
                 AfficheurNomJ2.Content = J2.GetNom();
@@ -93,7 +96,7 @@ namespace Scrabble2Joueurs
                 FinPartie.Visibility = Visibility.Visible;
                 Joueur starter = Utilitaire.ChooseStarter(J1, J2);
                 if (starter == J1)
-                { 
+                {
                     Visibility = Visibility.Visible;
                     MessageBox.Show(J1.GetNom() + " commence en premier", "Partie", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -136,8 +139,8 @@ namespace Scrabble2Joueurs
                     Letter5.Text = hand[4].ToString();
                     Letter6.Text = hand[5].ToString();
                     Letter7.Text = hand[6].ToString();
-
-                    if (J2.GetNbMots() == 10 && J1.GetNbMots() == 10)
+                    
+                    if (J2.GetNbMots() >= 10 && J1.GetNbMots() == 10)
                     {
                         MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
                         FinPartie.Visibility = Visibility.Hidden;

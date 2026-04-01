@@ -89,7 +89,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <!-- Joueur 1 -->
-            <Border x:Name="BordureJoueur1" Style="{StaticResource StyleBorder}" Grid.Column="0">
+            <Border x:Name="BordureJoueur1" Style="{StaticResource StyleBorder}"  Grid.Column="0 " BorderBrush="#FF6892B3">
                 <Grid x:Name="PartieJoueur1" Background="White" Visibility="Collapsed">
                     <Button x:Name="Joueur1play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Background="#FF00D203" Click="Button_Click_J1"/>
                     <Label x:Name="AfficheurNomJ1" Content="Il était une fois la vie" HorizontalAlignment="Center" Margin="0,8,0,0" VerticalAlignment="Top"/>
@@ -102,10 +102,10 @@
             </Border>
 
             <!-- Joueur 2 -->
-            <Border x:Name="BordureJoueur2" Style="{StaticResource StyleBorder}" Grid.Column="1">
+            <Border x:Name="BordureJoueur2" Style="{StaticResource StyleBorder}" Grid.Column="1" BorderBrush="#FF6892B3">
                 <Grid x:Name="PartieJoueur2" Background="White">
-                    <Button x:Name="Joueur2play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" BorderThickness="0,1,1,1" Background="#FF00D203" Visibility="Visible" Click="Button_Click_J2"/>
-                    <Label x:Name="AfficheurNomJ2" Content="Tu n'est pas senser voir ça" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="Joueur2play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" BorderThickness="0,1,1,1" Background="#FF007B02" Visibility="Hidden" Click="Button_Click_J2"/>
+                    <Label x:Name="AfficheurNomJ2" Visibility="Hidden" Content="Tu n'est pas senser voir ça" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="nbrMotJ2" Content="Mots/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top"/>
                     <TextBlock Text="" Background="Cyan" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ2" VerticalAlignment="Top" Height="110" Width="100" Margin="0,40,0,0"/>
 
@@ -115,6 +115,7 @@
         <Grid x:Name="FinPartie" Grid.Row="2">
             <Label Content="nbManches" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" Visibility="Hidden"/>
             <TextBox HorizontalAlignment="Center" x:Name="txtMot" VerticalAlignment="Center" Width="400" Height="52" TextWrapping="Wrap" Text="" Visibility="Hidden" GotFocus="focusOnTxtxMot" LostFocus="lostFocusOnTxtMot" Initialized="txtMot_init" />
+            <Button Content="Button" HorizontalAlignment="Left" Margin="690,-177,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>
