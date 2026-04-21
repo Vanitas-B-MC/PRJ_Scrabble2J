@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Scrabble2Joueurs"
         mc:Ignorable="d"
-        Title="JEU DU SCRABBLE - MODE 2 JOUEURS" Height="450" Width="800">
+        Title="JEU DU SCRABBLE - MODE 2 JOUEURS" Height="450" Width="800" ResizeMode="NoResize">
     <Window.Resources>
         <!-- Style de base -->
         <Style x:Key="BaseStyle">
@@ -38,12 +38,14 @@
             <Setter Property="Width" Value="100"/>
         </Style>
         <Style x:Key="StyleBorder" TargetType="Border">
-            <Setter Property="BorderBrush" Value="#FF6892B3"/>
-            <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Margin" Value="4"/>
         </Style>
     </Window.Resources>
     <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Poogie.jpg" Stretch="UniformToFill" Opacity="0.70"/>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
@@ -75,10 +77,10 @@
                 </Viewbox>
             </StackPanel>
             <Grid x:Name="DebutPartie">
-                <Label x:Name="aDeleteJ1" Content="Entrez le nom du Joueur 1" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" />
-                <TextBox x:Name="txtNomJ1" HorizontalAlignment="Left" Margin="300,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" />
-                <Label x:Name="aDeleteJ2" Content="Entrez le nom du Joueur 2" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" />
-                <TextBox x:Name="txtNomJ2" HorizontalAlignment="Left" Margin="300,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" />
+                <Label x:Name="aDeleteJ1" Content="Entrez le nom du Joueur 1" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" FontWeight="ExtraBlack" Foreground="Snow"/>
+                <TextBox x:Name="txtNomJ1" HorizontalAlignment="Left" Margin="300,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" Initialized="start" GotFocus="focusOnTxtNomJ1" />
+                <Label x:Name="aDeleteJ2" Content="Entrez le nom du Joueur 2" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" FontWeight="ExtraBlack"/>
+                <TextBox x:Name="txtNomJ2" HorizontalAlignment="Left" Margin="300,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" Initialized="start2" GotFocus="gotFocusOnTxtNomJ2"/>
                 <Button x:Name="btnCommencer" Content="COMMENCER" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,20,0,0" Click="startGame" Background="#FF1E82FF" Height="52" Width="161" />
             </Grid>
         </Grid>
@@ -89,33 +91,29 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <!-- Joueur 1 -->
-            <Border x:Name="BordureJoueur1" Style="{StaticResource StyleBorder}"  Grid.Column="0 " BorderBrush="#FF6892B3">
-                <Grid x:Name="PartieJoueur1" Background="White" Visibility="Collapsed">
-                    <Button x:Name="Joueur1play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Background="#FF00D203" Click="Button_Click_J1"/>
-                    <Label x:Name="AfficheurNomJ1" Content="Il était une fois la vie" HorizontalAlignment="Center" Margin="0,8,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="nbrMotJ1" Content="Mots/10" HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top"/>
-                    <TextBlock Text="" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ1" VerticalAlignment="Top" Height="110" Width="100" Margin="0,38,0,0"/>
-
-
+            <Border x:Name="BordureJoueur1" Grid.Column="0 " BorderBrush="#FF6892B3" Visibility="Visible" BorderThickness="2" Background="Transparent">
+                <Grid x:Name="PartieJoueur1" Background="Transparent" Visibility="visible">
+                    <Button x:Name="Joueur1play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Background="#FF007B02" Click="Button_Click_J1" Visibility="Hidden" />
+                    <Label x:Name="AfficheurNomJ1" Content="Poogie" HorizontalAlignment="Center" Margin="0,13,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="nbrMotJ1" Content="0/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock Background="Crimson" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ1" VerticalAlignment="Top" Height="110" Width="100" Margin="0,43,0,0" Visibility="Hidden"><Run Language="fr-fr" Text="0"/></TextBlock>
                 </Grid>
 
             </Border>
 
             <!-- Joueur 2 -->
-            <Border x:Name="BordureJoueur2" Style="{StaticResource StyleBorder}" Grid.Column="1" BorderBrush="#FF6892B3">
-                <Grid x:Name="PartieJoueur2" Background="White">
-                    <Button x:Name="Joueur2play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" BorderThickness="0,1,1,1" Background="#FF007B02" Visibility="Hidden" Click="Button_Click_J2"/>
+            <Border x:Name="BordureJoueur2" Grid.Column="1" BorderBrush="#FF6892B3" BorderThickness="2" Background="Transparent">
+                <Grid x:Name="PartieJoueur2" Background="Transparent">
+                    <Button x:Name="Joueur2play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" BorderThickness="0,1,1,1" Background="#FF007B02" Click="Button_Click_J2" Visibility="Hidden"/>
                     <Label x:Name="AfficheurNomJ2" Visibility="Hidden" Content="Tu n'est pas senser voir ça" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="nbrMotJ2" Content="Mots/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top"/>
-                    <TextBlock Text="" Background="Cyan" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ2" VerticalAlignment="Top" Height="110" Width="100" Margin="0,40,0,0"/>
-
+                    <Label x:Name="nbrMotJ2" Content="0/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock Background="Cyan" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ2" VerticalAlignment="Top" Height="110" Width="100" Margin="0,40,0,0" Visibility="Hidden"><Run Language="fr-fr" Text=""/></TextBlock>
                 </Grid>
             </Border>
         </Grid>
         <Grid x:Name="FinPartie" Grid.Row="2">
             <Label Content="nbManches" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" Visibility="Hidden"/>
             <TextBox HorizontalAlignment="Center" x:Name="txtMot" VerticalAlignment="Center" Width="400" Height="52" TextWrapping="Wrap" Text="" Visibility="Hidden" GotFocus="focusOnTxtxMot" LostFocus="lostFocusOnTxtMot" Initialized="txtMot_init" />
-            <Button Content="Button" HorizontalAlignment="Left" Margin="690,-177,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>

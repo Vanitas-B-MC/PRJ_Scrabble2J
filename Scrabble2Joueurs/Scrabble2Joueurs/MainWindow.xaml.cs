@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
 
 
 namespace Scrabble2Joueurs
@@ -97,12 +98,31 @@ namespace Scrabble2Joueurs
                 Joueur starter = Utilitaire.ChooseStarter(J1, J2);
                 if (starter == J1)
                 {
-                    Visibility = Visibility.Visible;
+                    Joueur1play.Visibility = Visibility.Visible;
+                    AfficheurNomJ1.Visibility = Visibility.Visible;
+                    nbrMotJ1.Visibility = Visibility.Visible;
+                    txtTotalPointsJ1.Visibility = Visibility.Visible;
+
+                    AfficheurNomJ2.Visibility = Visibility.Visible;
+                    nbrMotJ2.Visibility = Visibility.Visible;
+                    txtTotalPointsJ2.Visibility = Visibility.Visible;
                     MessageBox.Show(J1.GetNom() + " commence en premier", "Partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                    BordureJoueur1.BorderBrush = new SolidColorBrush(Color.FromRgb(10, 180, 0)) ;
+                    BordureJoueur1.BorderThickness = new Thickness(4);
                 }
                 else
                 {
+                    Joueur2play.Visibility = Visibility.Visible;
+                    AfficheurNomJ1.Visibility = Visibility.Visible;
+                    nbrMotJ1.Visibility = Visibility.Visible;
+                    txtTotalPointsJ1.Visibility = Visibility.Visible;
+
+                    AfficheurNomJ2.Visibility = Visibility.Visible;
+                    nbrMotJ2.Visibility = Visibility.Visible;
+                    txtTotalPointsJ2.Visibility = Visibility.Visible;
                     MessageBox.Show(J2.GetNom() + " commence en premier", "Partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                    BordureJoueur2.BorderBrush = new SolidColorBrush(Color.FromRgb(10, 180, 0));
+                    BordureJoueur2.BorderThickness = new Thickness(4);
                 }
             }
             else
@@ -126,7 +146,7 @@ namespace Scrabble2Joueurs
                 if (EstCeQueLeMotExiste() == true)
                 {
                     J1.AjouterMot(txtMot.Text);
-                    nbrMotJ1.Content = J1.GetNbMots() + " / 10";
+                    nbrMotJ1.Content = "Mots : " + J1.GetNbMots() + " / 10";
                     txtMot.Clear();
                     txtTotalPointsJ1.Text = J1.GetTotalPoints().ToString();
                     txtMot.Focus();
@@ -139,11 +159,24 @@ namespace Scrabble2Joueurs
                     Letter5.Text = hand[4].ToString();
                     Letter6.Text = hand[5].ToString();
                     Letter7.Text = hand[6].ToString();
-                    
+
+                    Joueur1play.Visibility = Visibility.Hidden;
+                    Joueur2play.Visibility = Visibility.Visible;
+
+                    BordureJoueur2.BorderBrush = new SolidColorBrush(Color.FromRgb(10, 180, 0));
+                    BordureJoueur2.BorderThickness = new Thickness(4);
+
+                    BordureJoueur1.BorderBrush = new SolidColorBrush(Color.FromRgb(104, 146, 179));
+                    BordureJoueur1.BorderThickness = new Thickness(2);
+
                     if (J2.GetNbMots() >= 10 && J1.GetNbMots() == 10)
                     {
-                        MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var mots = J1.GetLesMots();
+                        string message = string.Join("\n", mots);
+                        MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
                         FinPartie.Visibility = Visibility.Hidden;
+                        Joueur2play.Visibility = Visibility.Hidden;
+                        Joueur1play.Visibility = Visibility.Hidden;
                     }
                 }
                 else { MessageBox.Show("Le mot n'existe pas", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
@@ -163,7 +196,7 @@ namespace Scrabble2Joueurs
                 if (EstCeQueLeMotExiste() == true)
                 {
                     J2.AjouterMot(txtMot.Text);
-                    nbrMotJ2.Content = J2.GetNbMots() + " / 10";
+                    nbrMotJ2.Content = "Mots : " + J2.GetNbMots() + " / 10";
                     txtMot.Clear();
                     txtTotalPointsJ2.Text = J2.GetTotalPoints().ToString();
                     txtMot.Focus();
@@ -177,10 +210,23 @@ namespace Scrabble2Joueurs
                     Letter6.Text = hand[5].ToString();
                     Letter7.Text = hand[6].ToString();
 
+                    Joueur1play.Visibility = Visibility.Visible;
+                    Joueur2play.Visibility = Visibility.Hidden;
+
+                    BordureJoueur1.BorderBrush = new SolidColorBrush(Color.FromRgb(10, 180, 0));
+                    BordureJoueur1.BorderThickness = new Thickness(4);
+
+                    BordureJoueur2.BorderBrush = new SolidColorBrush(Color.FromRgb(104, 146, 179));
+                    BordureJoueur2.BorderThickness = new Thickness(2);
+
                     if (J2.GetNbMots() == 10 && J1.GetNbMots() == 10)
                     {
-                        MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var mots = J2.GetLesMots();
+                        string message = string.Join("\n", mots);
+                        MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
                         FinPartie.Visibility = Visibility.Hidden;
+                        Joueur2play.Visibility = Visibility.Hidden;
+                        Joueur1play.Visibility = Visibility.Hidden;
                     }
                 }
                 else { MessageBox.Show("Le mot n'existe pas", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
@@ -219,5 +265,34 @@ namespace Scrabble2Joueurs
             }
         }
 
+        private void start(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNomJ1.Text))
+            {
+            txtNomJ1.Foreground = Brushes.Gray;
+            txtNomJ1.Text = Utilitaire.ChoisirNomAleatoire();
+            }
+        }
+
+        private void focusOnTxtNomJ1(object sender, RoutedEventArgs e)
+        {
+            txtNomJ1.Text = "";
+            txtNomJ1.Foreground = Brushes.Black;
+        }
+
+        private void start2(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNomJ2.Text))
+            {
+                txtNomJ2.Foreground = Brushes.Gray;
+                txtNomJ2.Text = Utilitaire.ChoisirNomAleatoire();
+            }
+        }
+
+        private void gotFocusOnTxtNomJ2(object sender, RoutedEventArgs e)
+        {
+            txtNomJ2.Text = "";
+            txtNomJ2.Foreground = Brushes.Black;
+        }
     }
 }

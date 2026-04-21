@@ -106,7 +106,32 @@ namespace Scrabble2Joueurs
             return rand.Next(2) == 0 ? j1 : j2;
         }
 
+        // Création d'un random en static
+        private static Random rand = new Random();
+
+        // C'est noter dans le nom... Cela permet d'avoir un nom aleatoire parmis ce de la liste
+        public static string ChoisirNomAleatoire()
+        {
+            List<string> noms = new List<string>
+            {
+                "Alexandre", "Léa", "Mehdi", "Chloé", "Lucas", "Inès",
+                "Hugo", "Camille", "Nina", "Thomas", "Sarah", "Yanis",
+                "Emma", "Nathan", "Lina", "Mohamed", "Jade", "Paul",
+                "Noah", "Alice", "Louis", "Clara", "Adam", "Eva",
+                "Rayan", "Zoé", "Arthur", "Maya", "Enzo", "Manon",
+                "Ibrahim", "Louise", "Gabriel", "Sofia", "Antoine", "Elena",
+                "Mathieu", "Aeltharion","Kaelthorn","Lyranox","Vaelrion","Drakthar","Eryndor",
+                "Sylvaris","Morghalen","Thalorik","Zephyros","Arkanis","Nymorith",
+                "Velkyrion","Otharion","Kaedryn","Xypheros","Eldrakar","Myrthal",
+                "Vorenath","Silvarok","Draelion","Nyxarion","Vaelorin","Grimwald",
+                "Eryxan","Tharnyx","Lorathis","Zarephos","Kaelvorn","Orvanyr"
+            };
+            int index = rand.Next(noms.Count);
+            return noms[index];
+        }
+    }
+
 
         #endregion
-    }
 }
+
