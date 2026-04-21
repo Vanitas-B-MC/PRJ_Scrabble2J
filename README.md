@@ -1,6 +1,12 @@
 ![Header](https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:3b82f6&height=200&section=header&text=Scrabble%202J&fontSize=40)
 [![Download](https://img.shields.io/badge/Download-Release-0A66C2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vanitas-B-MC/PRJ_Scrabble2J/releases)
 [![Docs](https://img.shields.io/badge/Docs-Read%20Now-8A2BE2?style=for-the-badge&logo=readthedocs&logoColor=white)](https://docs.google.com/document/d/16C_u5ggDNLeohmDBj1uULyayKDGFcQjceb_QkEtUMj8/edit?usp=sharing)
+<br>
+![C#](https://img.shields.io/badge/C%23-language-239120?logo=csharp&logoColor=white)
+![Status](https://img.shields.io/badge/status-active-success)
+![Repo Size](https://img.shields.io/github/repo-size/Vanitas-B-MC/PRJ_Scrabble2J?cacheSeconds=0)
+
+![Stars](https://img.shields.io/github/stars/Vanitas-B-MC/PRJ_Scrabble2J)
 
 # PRJ_Scrabble2J
 Projet SCRABBLE - Mode 2 joueur
@@ -20,6 +26,8 @@ Scrabble2Joueurs/
 |--MainWindow.xaml
 |  |--MainWindow.xml.cs  
 |-- Utilitaire.cs
+backgroundImc/
+|--Poogie.jpg
 Scrabble2JoueursTests/
 |--JoueursTests.cs
 ```
