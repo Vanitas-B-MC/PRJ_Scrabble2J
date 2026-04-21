@@ -171,9 +171,23 @@ namespace Scrabble2Joueurs
 
                     if (J2.GetNbMots() >= 10 && J1.GetNbMots() == 10)
                     {
-                        var mots = J1.GetLesMots();
-                        string message = string.Join("\n", mots);
-                        MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        if (J1.GetTotalPoints() == J2.GetTotalPoints())
+                        {
+                            MessageBox.Show(J1.GetNom() + " " + J2.GetNom() + " on finit ex æquo !! \n Leurs meilleurs mots était pour " + J1.GetNom() + " le mot : " + J1.MotMeilleur() + " et pour " + J2.GetNom() + " le mot : " + J2.MotMeilleur(), "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        if (J1.GetTotalPoints() > J2.GetTotalPoints())
+                        {
+                            var mots = J1.GetLesMots();
+                            string message = string.Join("\n", mots);
+                            MessageBox.Show(J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            var mots = J2.GetLesMots();
+                            string message = string.Join("\n", mots);
+                            MessageBox.Show(J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+
                         FinPartie.Visibility = Visibility.Hidden;
                         Joueur2play.Visibility = Visibility.Hidden;
                         Joueur1play.Visibility = Visibility.Hidden;
@@ -221,9 +235,23 @@ namespace Scrabble2Joueurs
 
                     if (J2.GetNbMots() == 10 && J1.GetNbMots() == 10)
                     {
-                        var mots = J2.GetLesMots();
-                        string message = string.Join("\n", mots);
-                        MessageBox.Show(J1.GetTotalPoints() > J2.GetTotalPoints() ? J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() : J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        if (J1.GetTotalPoints() == J2.GetTotalPoints()) 
+                        {
+                            MessageBox.Show(J1.GetNom() + " " + J2.GetNom() + " on finit ex æquo !! \n Leurs meilleurs mots était pour " + J1.GetNom() + " le mot : " + J1.MotMeilleur() + " et pour " + J2.GetNom() + " le mot : " + J2.MotMeilleur(), "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        if (J1.GetTotalPoints() > J2.GetTotalPoints())
+                        {
+                            var mots = J1.GetLesMots();
+                            string message = string.Join("\n", mots);
+                            MessageBox.Show(J1.GetNom() + " a gagné la partie, son meilleur mot était " + J1.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            var mots = J2.GetLesMots();
+                            string message = string.Join("\n", mots);
+                            MessageBox.Show(J2.GetNom() + " a gagné la partie, son meilleur mot était " + J2.MotMeilleur() + "\n Listes des mots du vainceur" + message + "", "Fin de partie", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+
                         FinPartie.Visibility = Visibility.Hidden;
                         Joueur2play.Visibility = Visibility.Hidden;
                         Joueur1play.Visibility = Visibility.Hidden;
