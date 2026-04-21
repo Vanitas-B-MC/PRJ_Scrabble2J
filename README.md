@@ -4,9 +4,9 @@
 <br>
 ![C#](https://img.shields.io/badge/C%23-language-239120?logo=csharp&logoColor=white)
 ![Status](https://img.shields.io/badge/status-active-success)
+![Repo Size](https://img.shields.io/github/repo-size/Vanitas-B-MC/PRJ_Scrabble2J?cacheSeconds=0)
 
-![Stars](https://img.shields.io/github/stars/Vanitas-B-MC/PRJ_Scrabble2J?style=social)
-![Repo Size](https://img.shields.io/github/repo-size/Vanitas-B-MC/PRJ_Scrabble2J)
+![Stars](https://img.shields.io/github/stars/Vanitas-B-MC/PRJ_Scrabble2J)
 
 # PRJ_Scrabble2J
 Projet SCRABBLE - Mode 2 joueur
