@@ -43,7 +43,7 @@
     </Window.Resources>
     <Grid >
         <Grid.Background>
-            <ImageBrush ImageSource="/Poogie.jpg" Stretch="UniformToFill" Opacity="0.70"/>
+            <ImageBrush ImageSource="/backgroundImg/Poogie.jpg" Stretch="UniformToFill" Opacity="0.70"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -77,7 +77,7 @@
                 </Viewbox>
             </StackPanel>
             <Grid x:Name="DebutPartie">
-                <Label x:Name="aDeleteJ1" Content="Entrez le nom du Joueur 1" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" FontWeight="ExtraBlack" Foreground="Snow"/>
+                <Label x:Name="aDeleteJ1" Content="Entrez le nom du Joueur 1" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" FontWeight="ExtraBlack" Foreground="Black"/>
                 <TextBox x:Name="txtNomJ1" HorizontalAlignment="Left" Margin="300,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" Initialized="start" GotFocus="focusOnTxtNomJ1" />
                 <Label x:Name="aDeleteJ2" Content="Entrez le nom du Joueur 2" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" FontWeight="ExtraBlack"/>
                 <TextBox x:Name="txtNomJ2" HorizontalAlignment="Left" Margin="300,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" Initialized="start2" GotFocus="gotFocusOnTxtNomJ2"/>
@@ -96,7 +96,7 @@
                     <Button x:Name="Joueur1play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Background="#FF007B02" Click="Button_Click_J1" Visibility="Hidden" />
                     <Label x:Name="AfficheurNomJ1" Content="Poogie" HorizontalAlignment="Center" Margin="0,13,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="nbrMotJ1" Content="0/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-                    <TextBlock Background="Crimson" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ1" VerticalAlignment="Top" Height="110" Width="100" Margin="0,43,0,0" Visibility="Hidden"><Run Language="fr-fr" Text="0"/></TextBlock>
+                    <TextBlock FontSize="48" Background="PaleVioletRed" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ1" VerticalAlignment="Top" Height="110" Width="100" Margin="0,43,0,0" Visibility="Hidden"><Run Language="fr-fr" Text="0"/></TextBlock>
                 </Grid>
 
             </Border>
@@ -107,7 +107,7 @@
                     <Button x:Name="Joueur2play" Content="Valider le mot" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" BorderThickness="0,1,1,1" Background="#FF007B02" Click="Button_Click_J2" Visibility="Hidden"/>
                     <Label x:Name="AfficheurNomJ2" Visibility="Hidden" Content="Tu n'est pas senser voir ça" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="nbrMotJ2" Content="0/10" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-                    <TextBlock Background="Cyan" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ2" VerticalAlignment="Top" Height="110" Width="100" Margin="0,40,0,0" Visibility="Hidden"><Run Language="fr-fr" Text=""/></TextBlock>
+                    <TextBlock Background="LightCyan" FontSize="48" TextAlignment="Center" FontWeight="ExtraBlack" HorizontalAlignment="Center" TextWrapping="Wrap" x:Name="txtTotalPointsJ2" VerticalAlignment="Top" Height="110" Width="100" Margin="0,40,0,0" Visibility="Hidden"><Run Language="fr-fr" Text=""/></TextBlock>
                 </Grid>
             </Border>
         </Grid>
