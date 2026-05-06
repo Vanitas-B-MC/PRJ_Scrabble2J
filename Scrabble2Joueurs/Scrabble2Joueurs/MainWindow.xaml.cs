@@ -79,7 +79,7 @@ namespace Scrabble2Joueurs
                 DebutPartie.Visibility = Visibility.Collapsed;
                 Lettres.Visibility = Visibility.Visible;
                 AfficheurNomJ2.Visibility = Visibility.Visible;
-                Joueur2play.Visibility = Visibility.Visible;
+                
 
                 J1 = new Joueur(nom1);
                 J2 = new Joueur(nom2);
