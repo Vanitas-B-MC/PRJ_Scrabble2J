@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scrabble2Joueurs.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MySql.Data.MySqlClient;
 
 namespace Scrabble2Joueurs
 {
@@ -28,8 +29,10 @@ namespace Scrabble2Joueurs
         public MainWindow()
         {
             InitializeComponent();
-
-
+            MySqlConnection connex = Connexion.Connect();
+            connex.Open();
+            MessageBox.Show(connex.State.ToString());
+            /*
             // Chargement du dictionnaire (J'ai mis le dictionnaire dans un dossier assets)
             // Charge les mots de la liste
             // Accès au dossier du projet
@@ -53,11 +56,11 @@ namespace Scrabble2Joueurs
         {
             return words.Contains(txtMot.Text.Trim());
         }
+            */
+        }
 
 
-
-
-
+        
         Joueur J1;
         Joueur J2;
 
@@ -143,7 +146,7 @@ namespace Scrabble2Joueurs
         {
             if (Utilitaire.utilisationDesLettres(txtMot.Text, new[] { Letter1.Text, Letter2.Text, Letter3.Text, Letter4.Text, Letter5.Text, Letter6.Text, Letter7.Text }) == true)
             {
-                if (EstCeQueLeMotExiste() == true)
+                if (/*EstCeQueLeMotExiste()*/ true == true)
                 {
                     J1.AjouterMot(txtMot.Text);
                     nbrMotJ1.Content = "Mots : " + J1.GetNbMots() + " / 10";
@@ -207,7 +210,7 @@ namespace Scrabble2Joueurs
         {
             if (Utilitaire.utilisationDesLettres(txtMot.Text, new[] { Letter1.Text, Letter2.Text, Letter3.Text, Letter4.Text, Letter5.Text, Letter6.Text, Letter7.Text }) == true)
             {
-                if (EstCeQueLeMotExiste() == true)
+                if (/* EstCeQueLeMotExiste() */ true == true)
                 {
                     J2.AjouterMot(txtMot.Text);
                     nbrMotJ2.Content = "Mots : " + J2.GetNbMots() + " / 10";
