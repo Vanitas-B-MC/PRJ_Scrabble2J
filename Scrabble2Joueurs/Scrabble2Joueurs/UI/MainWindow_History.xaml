@@ -1,0 +1,33 @@
+<Window x:Class="Scrabble2Joueurs.MainWindow_History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Historique Scrabble - Bienvenue" Height="500" Width="800">
+
+    <StackPanel Margin="20">
+
+        <Button x:Name="BtnNouvellePartie" 
+                Content="NOUVELLE PARTIE" 
+                Padding="10,5" 
+                Click="BtnNouvellePartie_Click"
+                FontSize="16"
+                Margin="0,0,0,15"/>
+
+        <DataGrid x:Name="HistoriqueDataGrid" 
+                  ItemsSource="{Binding Historique}"
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <!-- Date -->
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat='yyyy-MM-dd'}" Width="*"/>
+                <!-- Joueur 1 -->
+                <DataGridTextColumn Header="Joueur 1" Binding="{Binding Joueur1}" Width="*" />
+                <!-- Joueur 2 -->
+                <DataGridTextColumn Header="Joueur 2" Binding="{Binding Joueur2}" Width="*" />
+                <!-- Score 1 -->
+                <DataGridTextColumn Header="Score 1" Binding="{Binding Score1}" Width="Auto"/>
+                <!-- Score 2 -->
+                <DataGridTextColumn Header="Score 2" Binding="{Binding Score2}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </StackPanel>
+</Window>
